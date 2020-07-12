@@ -14,7 +14,7 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-        <img src="static/images/ucuenca.png" th:src="@{/images/ucuenca.png}"/>
+        <img src="static/images/ucuenca.png" th:src="@{/images/ucuenca.png}" />
         <a class="navbar-brand"><img src="../static/images/ucuenca.png" alt="">&nbsp TELEMED_UDEC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,41 +39,51 @@
     <div class="container my-5 text-center">
         <h1>Registro Examen fisico</h1>
     </div>
-    <div>
+    <div class="container my-5 text-center">
         <h2>DATOS GENERALES DEL EXAMEN</h2>
-        <div class="input-group my-3">
-            <div class="input-group-prepend"><span class="input-group-text" id="">Codigo de Examen</span></div>
-            <input required type="number" id="listaid" name="listaid" placeholder="Codigo de examen" class="form-control" readonly>
-        </div>
-        <div class="input-group my-3">
-            <div class="input-group-prepend"><span class="input-group-text" id="">Paciente</span></div>
-            <input required type="number" id="listaid1" name="listaid1" placeholder="ID Paciente" class="form-control" readonly>
-        </div>
-        <div class="input-group my-3">
-            <div class="input-group-prepend"><span class="input-group-text" id="">Caso</span></div>
-            <input required type="number" id="listaid2" name="listaid2" placeholder="ID Caso" class="form-control" readonly>
-        </div>
-        <div class="input-group my-3">
-            <div class="input-group-prepend"><span class="input-group-text" id="">Precio</span></div>
-            <input required type="number" id="listaid3" name="listaid3" placeholder="Precio" class="form-control" readonly>
-        </div>
-        <div class="input-group my-3">
-            <div class="input-group-prepend"><span class="input-group-text" id="">Fecha</span></div>
-            <input required type="text" id="listaid4" name="listaid4" placeholder="Fecha" class="form-control" readonly>
+        <div>
+            <div class="table-responsive">
+                <table id="examForm" class="table table-bordered table-hover table-striped">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">registro</th>
+                            <th scope="col">paciente</th>
+                            <th scope="col">caso</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <tr th:object="${examForm}">
+                            <td th:text="${examForm.id}"></td>
+                            <td th:text="${examForm.paciente}"></td>
+                            <td th:text="${examForm.caso}"></td>
+                            <td th:text="${examForm.precio}"></td>
+                            <td th:text="${examForm.fecha}"></td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
     <div class="container my-5">
         <h2>Signos vitales </h2>
-        <form id="formulario">
+        <form id="formulario" method="POST">
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">Presion arterial</span></div>
-                <input required type="text"  id="pa" name="pa" placeholder="Presion arterial" class="form-control">
+                <div class="input-group-prepend"><span class="input-group-text" id="">codigo del Examen</span></div>
+                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control">
             </div>
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">Frecuencia respiratoria</span>
-                </div>
-                <input required type="number" id="fr" name="fr" placeholder="Frecuencia respiratoria" class="form-control">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Presion arterial</span></div>
+                <input required type="text" id="pa" name="pa" placeholder="Presion arterial" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Frecuencia respiratoria</span></div>
+                <input required type="number" id="fr" name="fr" placeholder="Frecuencia respiratoria"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Frecuencia cardiaca</span></div>
@@ -87,14 +97,14 @@
                 <div class="input-group-prepend"><span class="input-group-text" id="">Presion arterial</span></div>
                 <input required type="number" id="s2" name="s2" placeholder="Sat O2" class="form-control">
             </div>
-            <button class="btn btn-primary w-100" id="envioVitales" type="submit" onclick="inputVitales(document.getElementById('listaid').value,document.getElementById('pa').value,document.getElementById('fr').value,document.getElementById('ta').value,document.getElementById('fc').value,document.getElementById('s2').value)">Subir</button>
+            <button class="btn btn-primary w-100" id="examVitales" type="submit">Subir</button>
         </form>
     </div>
 
     <div class="container my-5">
         <h2>Medidas antropometricas </h2>
         <form id="formulario">
-            
+
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Talla</span></div>
                 <input required type="number" id="tal" name="tal" placeholder="Talla" class="form-control">
@@ -111,14 +121,15 @@
                 <div class="input-group-prepend"><span class="input-group-text" id="">Aspecto general</span></div>
                 <input required type="text" id="ag" name="ag" placeholder="Aspecto general" class="form-control">
             </div>
-            <button class="btn btn-primary w-25" type="submit" id="envioAntropometricas" onclick="inputAntropometricas(document.getElementById('listaid').value,document.getElementById('tal').value,document.getElementById('wg').value,document.getElementById('en').value,document.getElementById('ag').value)">Subir</button>
+            <button class="btn btn-primary w-25" type="submit" id="envioAntropometricas"
+                onclick="inputAntropometricas(document.getElementById('listaid').value,document.getElementById('tal').value,document.getElementById('wg').value,document.getElementById('en').value,document.getElementById('ag').value)">Subir</button>
         </form>
     </div>
 
     <div class="container my-5">
         <h2>Piel y cabeza</h2>
         <form id="formulario">
-            
+
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Ojos</span></div>
                 <input required type="text" id="ojo" name="ojo" placeholder="Ojos" class="form-control">
@@ -136,8 +147,10 @@
                 <input required type="text" id="arc" name="arc" placeholder="Aarterias carotidas" class="form-control">
             </div>
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">Turgor y elasticidad de la piel</span></div>
-                <input required type="text" id="tep" name="tep" placeholder="Turgor y elasticidad de la piel" class="form-control">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Turgor y elasticidad de la
+                        piel</span></div>
+                <input required type="text" id="tep" name="tep" placeholder="Turgor y elasticidad de la piel"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Pelo y uñas</span></div>
@@ -166,18 +179,21 @@
     <div class="container my-5">
         <h2>Corporal</h2>
         <form id="formulario">
-            
+
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Palpacion del torax</span></div>
-                <input required type="number" id="pat" name="pat" placeholder="Palpacion del torax" class="form-control">
+                <input required type="number" id="pat" name="pat" placeholder="Palpacion del torax"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Percusion del torax</span></div>
-                <input required type="number" id="pet" name="pet" placeholder="Percusion del torax" class="form-control">
+                <input required type="number" id="pet" name="pet" placeholder="Percusion del torax"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Ausculacion del torax</span></div>
-                <input required type="number" id="aut" name="aut" placeholder="Auscualcion del torax" class="form-control">
+                <input required type="number" id="aut" name="aut" placeholder="Auscualcion del torax"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Inspeccion del torax</span></div>
@@ -189,19 +205,25 @@
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Percusion del abdomen</span></div>
-                <input required type="number" id="pea" name="pea" placeholder="Percusion del abdomen" class="form-control">
+                <input required type="number" id="pea" name="pea" placeholder="Percusion del abdomen"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Palpacion del abdomen</span></div>
-                <input required type="number" id="paa" name="paa" placeholder="Palpacion del abdomen" class="form-control">
+                <input required type="number" id="paa" name="paa" placeholder="Palpacion del abdomen"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">Ausculacion del abdomen</span></div>
-                <input required type="number" id="aua" name="aua" placeholder="Ausculacion del abdomen" class="form-control">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Ausculacion del abdomen</span>
+                </div>
+                <input required type="number" id="aua" name="aua" placeholder="Ausculacion del abdomen"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">Inspeccion del abdomen</span></div>
-                <input required type="number" id="ina" name="ina" placeholder="Inspeccion del abdomen" class="form-control">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Inspeccion del abdomen</span>
+                </div>
+                <input required type="number" id="ina" name="ina" placeholder="Inspeccion del abdomen"
+                    class="form-control">
             </div>
             <button class="btn btn-primary w-100" type="submit" id="envioCorporal">Subir</button>
         </form>
@@ -210,10 +232,11 @@
     <div class="container my-5">
         <h2>Neurologico</h2>
         <form id="formulario">
-            
+
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Estado de conciencia</span></div>
-                <input required type="number" id="eco" name="eco" placeholder="Estado de conciencia" class="form-control">
+                <input required type="number" id="eco" name="eco" placeholder="Estado de conciencia"
+                    class="form-control">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Pares craneales</span></div>

@@ -29,7 +29,6 @@ public class ExamenControlador{
 		return examenRepo.findAll();
 	}
 	
-	
 	@GetMapping ("/{id}")
 	public Examen getById(@PathVariable(value="id") Integer id) {
 		return examenRepo.findById(id).orElseGet(() -> {
@@ -43,8 +42,17 @@ public class ExamenControlador{
 	}
 	
 	@PutMapping
-	public Examen update(@RequestBody Examen examen) {
-		return examenRepo.save(examen);
+	public Examen update(@RequestBody Examen fromExamen) throws Exception{
+		Examen toExamen = getById(fromExamen.getId());
+		mapExamen(fromExamen, toExamen);
+		return examenRepo.save(toExamen);
+	}
+	
+	protected void mapExamen(Examen from, Examen to) {
+		to.setCaso(from.getCaso());
+		to.setFecha(from.getFecha());
+		to.setPaciente(from.getPaciente());
+		to.setPrecio(from.getPrecio());
 	}
 	
 	@DeleteMapping ("/{id}")

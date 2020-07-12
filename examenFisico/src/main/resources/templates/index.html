@@ -14,7 +14,7 @@
 <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-        <img src="static/images/ucuenca.png" th:src="@{/images/ucuenca.png}"/>
+        <img src="static/images/ucuenca.png" th:src="@{/images/ucuenca.png}" />
         <a class="navbar-brand"><img src="../static/images/ucuenca.png" alt="">&nbsp TELEMED_UDEC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button type="button" class="btn btn-primary">Acerca de</button>
+                <button type="button" class="btn btn-primary" href="acerca">Acerca de</button>
             </form>
         </div>
     </nav>
@@ -46,7 +46,6 @@
                         <th scope="col">caso</th>
                         <th scope="col">precio</th>
                         <th scope="col">fecha</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,10 +56,6 @@
                         <td th:text="${examen.caso}"></td>
                         <td th:text="${examen.precio}"></td>
                         <td th:text="${examen.fecha}"></td>
-                        <td>
-                            <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                    class="fas fa-user-times"></i></a>
-                        </td>
                     </tr>
                     </tr>
                 </tbody>
@@ -77,14 +72,26 @@
         <form id="formulario" method="POST" th:object="${examForm}">
             <input required type="number" id="paciente" name="paciente" placeholder="id_paciente"
                 class="form-control my-3" th:field="${examForm.paciente}">
-            <div class="alert-danger" th:if="${#fields.hasErrors('paciente')}" th:errors="*{id_paciente}">Name Error</div>
             <input required type="number" id="caso" name="caso" placeholder="Caso" class="form-control my-3" th:field="${examForm.caso}" >
-            <div class="alert-danger" th:if="${#fields.hasErrors('caso')}" th:errors="*{caso}">Name Error</div>
             <input required type="date" id="fecha" name="fecha" placeholder="Fecha" class="form-control my-3" th:field="${examForm.fecha}">
-            <div class="alert-danger" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}">Name Error</div>
-            <button id="envio" class="btn btn-primary w-100" type="submit">Comenzar</button>
+            <button id="envio" class="btn btn-primary w-100" type="submit" th:href="@{/registro}">Comenzar</button>
         </form>
     </div>
+     <!-- Footer -->
+     <footer class="page-footer font-small bg-primary">
+        <div class="container">
+            <div class="row d-flex text-center justify-content-center">
+                <div class="col-md-8 col-12 mt-5 text-light">
+                    <p style="line-height: 3rem">Este módulo fue desarrollado como parte de la materia Base de Datos II,periodo marzo-julio 2020.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-light">© 2020 Copyright
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

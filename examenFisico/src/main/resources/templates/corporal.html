@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Llenado de datos</title>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+        <img src="static/images/ucuenca.png" th:src="@{/images/ucuenca.png}" />
+        <a class="navbar-brand"><img src="../static/images/ucuenca.png" alt="">&nbsp TELEMED_UDEC</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="RegistroExamen">Realizar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="acerca">Actualizar</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button type="button" class="btn btn-primary">Acerca de</button>
+            </form>
+        </div>
+    </nav>
+    <!-- NAVBAR -->
+    <div class="container my-5 text-center">
+        <h1>Registro Examen fisico</h1>
+    </div>
+    <div class="container my-5 text-center">
+        <h2>DATOS GENERALES DEL EXAMEN</h2>
+        <div>
+            <div class="table-responsive">
+                <table id="examForm" class="table table-bordered table-hover table-striped">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">registro</th>
+                            <th scope="col">paciente</th>
+                            <th scope="col">caso</th>
+                            <th scope="col">precio</th>
+                            <th scope="col">fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <tr th:object="${examForm}">
+                            <td th:text="${examForm.id}"></td>
+                            <td th:text="${examForm.paciente}"></td>
+                            <td th:text="${examForm.caso}"></td>
+                            <td th:text="${examForm.precio}"></td>
+                            <td th:text="${examForm.fecha}"></td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container my-5">
+        <h2>Corporal</h2>
+        <form id="formulario" method="POST">
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">codigo del Examen</span></div>
+                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Palpacion del torax</span></div>
+                <input required type="number" id="pat" name="pat" placeholder="Palpacion del torax"
+                    class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Percusion del torax</span></div>
+                <input required type="number" id="pet" name="pet" placeholder="Percusion del torax"
+                    class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Ausculacion del torax</span></div>
+                <input required type="number" id="aut" name="aut" placeholder="Auscualcion del torax"
+                    class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Inspeccion del torax</span></div>
+                <input required type="number" id="it" name="it" placeholder="Inspeccion del torax" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Region genital</span></div>
+                <input required type="number" id="rg" name="rg" placeholder="Region genital" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Percusion del abdomen</span></div>
+                <input required type="number" id="pea" name="pea" placeholder="Percusion del abdomen"
+                    class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Palpacion del abdomen</span></div>
+                <input required type="number" id="paa" name="paa" placeholder="Palpacion del abdomen"
+                    class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Ausculacion del abdomen</span>
+                </div>
+                <input required type="number" id="aua" name="aua" placeholder="Ausculacion del abdomen"
+                    class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Inspeccion del abdomen</span>
+                </div>
+                <input required type="number" id="ina" name="ina" placeholder="Inspeccion del abdomen"
+                    class="form-control">
+            </div>
+            <button class="btn btn-primary w-100" type="submit" id="examCorporal">Subir</button>
+        </form>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-primary">
+        <div class="container">
+            <div class="row d-flex text-center justify-content-center">
+                <div class="col-md-8 col-12 mt-5 text-light">
+                    <p style="line-height: 3rem">Este módulo fue desarrollado como parte de la materia Base de Datos II,
+                        periodo marzo-julio 2020.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-light">© 2020 Copyright
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</body>
+
+</html>
