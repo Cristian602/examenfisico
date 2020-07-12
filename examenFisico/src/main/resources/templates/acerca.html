@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -16,7 +16,8 @@
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="index.html">Examen Fisico</a>
+        <a class="navbar-brand" href="index.html"><img src="./iconos/ucuenca.png" alt="">&nbsp TELEMED_UDEC</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,7 +29,7 @@
                     <a class="nav-link" href="RegistroExamen.html">Realizar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Actualizar</a>
+                    <a class="nav-link" href="acerca.html">Actualizar</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -38,23 +39,39 @@
     </nav>
     <!-- NAVBAR -->
 
+
     <div class="container my-5 text-center">
-        <h1>Toma de datos Paciente</h1>
+        <h1>Sub-sistema: Examen Físico</h1>
     </div>
     <div class="container my-5">
-    <h2>Datos Generales </h2>
-        <form id="formulario" action="http://localhost/ExamenFisico/RegistroExamen.php" method="POST">
-            <input required type="number" id="paciente" name="paciente" placeholder="Paciente" class="form-control my-3">
-            <input required type="number" id="caso" name="caso" placeholder="Caso" class="form-control my-3">
-            <input required type="date" id="fecha" name="fecha" placeholder="Fecha" class="form-control my-3">
-            
-            <button id="envio" class="btn btn-primary w-100" type="submit" onclick="inputExamen(document.getElementById('paciente').value,document.getElementById('caso').value,document.getElementById('fecha').value)">Comenzar</button>
-        </form>
+        <h2>Realizado por:</h2>
+        <h4>Ricardo Hernan Maldonado Vélez.</h4>
+        <h4>Cristian Ricardo Méndez Espinoza.</h4>
+        <h2>Docente:</h2>
+        <h4>Carlos Villie Morocho Zurita.</h4>
+        <h2>Facultad:</h2>
+        <h4>Ingenieria en Sistemas.</h4>
+        <h2>Universidad:</h2>
+        <h4>Universidad de Cuenca.</h4>
+
     </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-primary">
+        <div class="container">
+            <div class="row d-flex text-center justify-content-center">
+                <div class="col-md-8 col-12 mt-5 text-light">
+                    <p style="line-height: 3rem">Este módulo fue desarrollado como parte de la materia Base de Datos II , periodo marzo-julio 2020.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-light">© 2020 Copyright
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 
-
-    <script src="examen.js"></script>
-
+    <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

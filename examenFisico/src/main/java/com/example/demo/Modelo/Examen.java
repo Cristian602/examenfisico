@@ -1,4 +1,6 @@
 package com.example.demo.Modelo;
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,12 +8,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table (name="examen")
 
-public class Examen {
+public class Examen implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3530730821450626280L;
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "sec_examen")
+	@GenericGenerator(name = "sec_examen", strategy = "native")
 	@Column (name="id_examen")
 	private int id;
 	@Column (name="paciente")
