@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Proveedores</title>
 </head>
 
 <body>
 
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
-        <img src="static/images/ucuenca.png" th:src="@{/images/ucuenca.png}"/>
-        <a class="navbar-brand"><img src="../static/images/ucuenca.png" alt="">&nbsp TELEMED_UDEC</a>
+        <a class="navbar-brand" href="index.html"><img src="./iconos/ucuenca.png" alt="">&nbsp TELEMED_UDEC</a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,10 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="RegistroExamen">Realizar</a>
+                    <a class="nav-link" href="RegistroExamen.html">Realizar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="acerca">Actualizar</a>
+                    <a class="nav-link" href="acerca.html">Actualizar</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -38,29 +37,42 @@
         </div>
     </nav>
     <!-- NAVBAR -->
-
-
     <div class="container my-5 text-center">
-        <h1>Sub-sistema: Examen Físico</h1>
+        <h1>Registrar Insumo</h1>
     </div>
     <div class="container my-5">
-        <h2>Realizado por:</h2>
-        <h4>Ricardo Hernan Maldonado Vélez.</h4>
-        <h4>Cristian Ricardo Méndez Espinoza.</h4>
-        <h2>Docente:</h2>
-        <h4>Carlos Villie Morocho Zurita.</h4>
-        <h2>Facultad:</h2>
-        <h4>Ingenieria en Sistemas.</h4>
-        <h2>Universidad:</h2>
-        <h4>Universidad de Cuenca.</h4>
-
+        <form id="formulario">
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Fecha</span></div>
+                <input required type="date" id="fech" name="fech" placeholder="Fecha" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Nombre</span></div>
+                <input required type="text" id="nom" name="nom" placeholder="Nombre" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Descripción</span></div>
+                <input required type="text" id="desc" name="desc" placeholder="Descripción" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Precio unitario</span></div>
+                <input required type="number" id="pun" name="pun" placeholder="00.00" class="form-control">
+            </div>
+            <div class="input-group my-3">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Cantidad</span></div>
+                <input required type="number" id="cant" name="cant" placeholder="0000" class="form-control">
+            </div>
+            <button class="btn btn-primary w-25" type="submit" id="envioAntropometricas">Registrar</button>
+        </form>
     </div>
+
     <!-- Footer -->
     <footer class="page-footer font-small bg-primary">
         <div class="container">
             <div class="row d-flex text-center justify-content-center">
                 <div class="col-md-8 col-12 mt-5 text-light">
-                    <p style="line-height: 3rem">Este módulo fue desarrollado como parte de la materia Base de Datos II , periodo marzo-julio 2020.</p>
+                    <p style="line-height: 3rem">Este módulo fue desarrollado como parte de la materia Base de Datos II
+                        , periodo marzo-julio 2020.</p>
                 </div>
             </div>
         </div>
@@ -82,6 +94,5 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
-
 
 </html>

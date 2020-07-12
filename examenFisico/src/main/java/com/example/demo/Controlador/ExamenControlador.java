@@ -29,6 +29,7 @@ public class ExamenControlador{
 		return examenRepo.findAll();
 	}
 	
+	
 	@GetMapping ("/{id}")
 	public Examen getById(@PathVariable(value="id") Integer id) {
 		return examenRepo.findById(id).orElseGet(() -> {
