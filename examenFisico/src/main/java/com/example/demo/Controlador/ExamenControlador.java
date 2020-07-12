@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RestController
 @RequestMapping ("/api/examen")
 @CrossOrigin (origins="*",methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
-public class ExamenControlador {
+public class ExamenControlador{
 	@Autowired
 	ExamenRepositorio examenRepo;
 	
