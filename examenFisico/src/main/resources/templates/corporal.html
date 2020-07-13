@@ -72,58 +72,62 @@
 
     <div class="container my-5">
         <h2>Corporal</h2>
-        <form id="formulario" method="POST">
-            <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">codigo del Examen</span></div>
-                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control">
+        <form id="formulario" method="POST" th:object="${examSub}">
+            <div class="input-group my-3" th:object="${examForm}">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Codigo del Examen</span></div>
+                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control"
+                th:text="${examSub.examen=examForm.id}" th:field="${examSub.examen}" readonly>
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Palpacion del torax</span></div>
-                <input required type="number" id="pat" name="pat" placeholder="Palpacion del torax"
-                    class="form-control">
+                <input required type="text" id="pat" name="pat" placeholder="Palpacion del torax"
+                    class="form-control" th:field="${examSub.tpalpaxion}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Percusion del torax</span></div>
-                <input required type="number" id="pet" name="pet" placeholder="Percusion del torax"
-                    class="form-control">
+                <input required type="text" id="pet" name="pet" placeholder="Percusion del torax"
+                    class="form-control" th:field="${examSub.tpercusion}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Ausculacion del torax</span></div>
-                <input required type="number" id="aut" name="aut" placeholder="Auscualcion del torax"
-                    class="form-control">
+                <input required type="text" id="aut" name="aut" placeholder="Auscualcion del torax"
+                    class="form-control" th:field="${examSub.tauscultacion}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Inspeccion del torax</span></div>
-                <input required type="number" id="it" name="it" placeholder="Inspeccion del torax" class="form-control">
+                <input required type="text" id="it" name="it" placeholder="Inspeccion del torax" class="form-control"
+                th:field="${examSub.tinspeccion}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Region genital</span></div>
-                <input required type="number" id="rg" name="rg" placeholder="Region genital" class="form-control">
+                <input required type="text" id="rg" name="rg" placeholder="Region genital" class="form-control"
+                th:field="${examSub.genital}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Percusion del abdomen</span></div>
-                <input required type="number" id="pea" name="pea" placeholder="Percusion del abdomen"
-                    class="form-control">
+                <input required type="text" id="pea" name="pea" placeholder="Percusion del abdomen"
+                    class="form-control" th:field="${examSub.apercusion}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Palpacion del abdomen</span></div>
-                <input required type="number" id="paa" name="paa" placeholder="Palpacion del abdomen"
-                    class="form-control">
+                <input required type="text" id="paa" name="paa" placeholder="Palpacion del abdomen"
+                    class="form-control" th:field="${examSub.apalpaxion}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Ausculacion del abdomen</span>
                 </div>
-                <input required type="number" id="aua" name="aua" placeholder="Ausculacion del abdomen"
-                    class="form-control">
+                <input required type="text" id="aua" name="aua" placeholder="Ausculacion del abdomen"
+                    class="form-control" th:field="${examSub.aauscultacion}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Inspeccion del abdomen</span>
                 </div>
-                <input required type="number" id="ina" name="ina" placeholder="Inspeccion del abdomen"
-                    class="form-control">
+                <input required type="text" id="ina" name="ina" placeholder="Inspeccion del abdomen"
+                    class="form-control" th:field="${examSub.ainspeccion}">
             </div>
             <button class="btn btn-primary w-100" type="submit" id="examCorporal">Subir</button>
         </form>
+        <button class="btn btn-warning w-100 my-3" type="submit" id="examPiel">Omitir</button>
     </div>
 
 

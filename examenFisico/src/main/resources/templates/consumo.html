@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -11,7 +10,9 @@
     <title>Document</title>
 </head>
 
+
 <body>
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
         <img src="static/images/ucuenca.png" th:src="@{/images/ucuenca.png}" />
@@ -21,47 +22,42 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link"></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"></a>
                 </li>
-        </ul>
-        
+            </ul>
             <form class="form-inline my-2 my-lg-0">
                 <button type="button" class="btn btn-primary" href="acerca">Acerca de</button>
             </form>
         </div>
     </nav>
     <!-- NAVBAR -->
-
+    
     <div class="container my-5 text-center">
-        <h1>Toma de datos Paciente</h1>
+        <h1>Peticiones de insumos</h1>
     </div>
     <div class="container my-5">
         <h2>Datos Generales </h2>
-        <form id="formulario" method="POST" th:object="${examForm}">
+        <form id="formulario">
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">id_Paciente</span></div>
-                <input required type="number" id="paciente" name="paciente" placeholder="id_paciente"
-                    class="form-control" th:field="${examForm.paciente}">
+                <div class="input-group-prepend"><span class="input-group-text" id="">id_Insumos</span></div>
+                <input required type="number" id="paciente" name="paciente" placeholder="id_paciente">
             </div>
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">id_Atencion</span></div>
-                <input required type="number" id="caso" name="caso" placeholder="Caso" class="form-control"
-                    th:field="${examForm.caso}">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Cantidad</span></div>
+                <input required type="number" id="caso" name="caso" placeholder="Caso" class="form-control">
             </div>
             <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">Fecha</span></div>
-                <input required type="date" id="fecha" name="fecha" placeholder="Fecha" class="form-control"
-                    th:field="${examForm.fecha}">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Codigo de modulo</span></div>
+                <input required type="date" id="fecha" name="fecha" placeholder="EX, IN, FC, HO," class="form-control">   
             </div>
             <button id="envio" class="btn btn-primary w-100" type="submit" th:href="@{/registro}">Comenzar</button>
         </form>
     </div>
-    
     
     <!-- Footer -->
     <footer class="page-footer font-small bg-primary">
@@ -79,7 +75,6 @@
         <!-- Copyright -->
     </footer>
     <!-- Footer -->
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

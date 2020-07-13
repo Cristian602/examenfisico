@@ -20,18 +20,18 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="RegistroExamen">Realizar</a>
+                    <a class="nav-link"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="acerca">Actualizar</a>
+                    <a class="nav-link"></a>
                 </li>
-            </ul>
+        </ul>
+        
             <form class="form-inline my-2 my-lg-0">
-                <button type="button" class="btn btn-primary">Acerca de</button>
+                <button type="button" class="btn btn-primary" href="acerca">Acerca de</button>
             </form>
         </div>
     </nav>
@@ -72,55 +72,67 @@
 
     <div class="container my-5">
         <h2>Piel y cabeza</h2>
-        <form id="formulario" method="POST">
-            <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">codigo del Examen</span></div>
-                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control">
+        <h2>Neurologico</h2>
+        <form id="formulario" method="POST" th:object="${examSub}">
+            <div class="input-group my-3" th:object="${examForm}">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Codigo del Examen</span></div>
+                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control"
+                    th:text="${examSub.examen=examForm.id}" th:field="${examSub.examen}" readonly>
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Ojos</span></div>
-                <input required type="text" id="ojo" name="ojo" placeholder="Ojos" class="form-control">
+                <input required type="text" id="ojo" name="ojo" placeholder="Ojos" class="form-control"
+                th:field="${examSub.ojos}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Cabeza</span></div>
-                <input required type="text" id="cab" name="cab" placeholder="Cabeza" class="form-control">
+                <input required type="text" id="cab" name="cab" placeholder="Cabeza" class="form-control"
+                th:field="${examSub.cabeza}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Tiroides</span></div>
-                <input required type="text" id="tir" name="tir" placeholder="Tiroides" class="form-control">
+                <input required type="text" id="tir" name="tir" placeholder="Tiroides" class="form-control"
+                th:field="${examSub.tiroides}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Arterias carotidas</span></div>
-                <input required type="text" id="arc" name="arc" placeholder="Aarterias carotidas" class="form-control">
+                <input required type="text" id="arc" name="arc" placeholder="Aarterias carotidas" class="form-control"
+                th:field="${examSub.carotidas}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Turgor y elasticidad de la
                         piel</span></div>
                 <input required type="text" id="tep" name="tep" placeholder="Turgor y elasticidad de la piel"
-                    class="form-control">
+                    class="form-control" th:field="${examSub.turgor}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Pelo y uñas</span></div>
-                <input required type="text" id="pu" name="pu" placeholder="Pelo y uñas" class="form-control">
+                <input required type="text" id="pu" name="pu" placeholder="Pelo y uñas" class="form-control"
+                th:field="${examSub.pelo}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Oidos</span></div>
-                <input required type="text" id="oid" name="oid" placeholder="Oidos" class="form-control">
+                <input required type="text" id="oid" name="oid" placeholder="Oidos" class="form-control"
+                th:field="${examSub.oidos}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Nariz</span></div>
-                <input required type="text" id="nar" name="nar" placeholder="Nariz" class="form-control">
+                <input required type="text" id="nar" name="nar" placeholder="Nariz" class="form-control"
+                th:field="${examSub.nariz}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Color de piel</span></div>
-                <input required type="text" id="cp" name="cp" placeholder="Color de piel" class="form-control">
+                <input required type="text" id="cp" name="cp" placeholder="Color de piel" class="form-control"
+                th:field="${examSub.piel}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Boca</span></div>
-                <input required type="text" id="boc" name="boc" placeholder="Boca" class="form-control">
+                <input required type="text" id="boc" name="boc" placeholder="Boca" class="form-control"
+                th:field="${examSub.boca}">
             </div>
             <button class="btn btn-primary w-100" type="submit" id="examPiel">Subir</button>
         </form>
+        <button class="btn btn-warning w-100 my-3" type="submit" id="examPiel">Omitir</button>
     </div>
 
 

@@ -26,9 +26,8 @@ public class RegistroInsumos implements Serializable{
 	private int id;
 	@Column (name="insumos")
 	private int insumos;
-	
 	@Column (name="cantidad")
-	private int descripcion;
+	private int cantidad;
 	@Column (name="codigo")
 	private String codigo;
 	@Column (name="preciototal")
@@ -48,10 +47,10 @@ public class RegistroInsumos implements Serializable{
 		this.preciototal = preciototal;
 	}
 	public int getDescripcion() {
-		return descripcion;
+		return cantidad;
 	}
 	public void setDescripcion(int descripcion) {
-		this.descripcion = descripcion;
+		this.cantidad = descripcion;
 	}
 	public String getCodigo() {
 		return codigo;

@@ -20,18 +20,18 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="RegistroExamen">Realizar</a>
+                    <a class="nav-link"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="acerca">Actualizar</a>
+                    <a class="nav-link"></a>
                 </li>
-            </ul>
+        </ul>
+        
             <form class="form-inline my-2 my-lg-0">
-                <button type="button" class="btn btn-primary">Acerca de</button>
+                <button type="button" class="btn btn-primary" href="acerca">Acerca de</button>
             </form>
         </div>
     </nav>
@@ -72,29 +72,35 @@
 
     <div class="container my-5">
         <h2>Medidas antropometricas </h2>
-        <form id="formulario" method="POST">
-            <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">codigo del Examen</span></div>
-                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control">
+        <form id="formulario" method="POST" th:object="${examSub}">
+            <div class="input-group my-3" th:object="${examForm}">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Codigo del Examen</span></div>
+                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control"
+                th:text="${examSub.examen=examForm.id}" th:field="${examSub.examen}" readonly>
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Talla</span></div>
-                <input required type="number" id="tal" name="tal" placeholder="Talla" class="form-control">
+                <input required type="number" id="tal" name="tal" placeholder="Talla" class="form-control"
+                th:field="${examSub.talla}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Peso</span></div>
-                <input required type="number" id="wg" name="wg" placeholder="Peso" class="form-control">
+                <input required type="number" id="wg" name="wg" placeholder="Peso" class="form-control"
+                th:field="${examSub.talla}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Estado nutricional</span></div>
-                <input required type="text" id="en" name="en" placeholder="Estado nutricional" class="form-control">
+                <input required type="text" id="en" name="en" placeholder="Estado nutricional" class="form-control"
+                th:field="${examSub.nutricional}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Aspecto general</span></div>
-                <input required type="text" id="ag" name="ag" placeholder="Aspecto general" class="form-control">
+                <input required type="text" id="ag" name="ag" placeholder="Aspecto general" class="form-control"
+                th:field="${examSub.general}">
             </div>
-            <button class="btn btn-primary w-25" type="submit" id="examAntropometricas">Subir</button>
+            <button class="btn btn-primary w-100" type="submit" id="examAntropometricas">Subir</button>
         </form>
+        <button class="btn btn-warning w-100 my-3" type="submit" id="examPiel">Omitir</button>
     </div>
 
 

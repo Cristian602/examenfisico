@@ -20,18 +20,18 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="RegistroExamen">Realizar</a>
+                    <a class="nav-link"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="acerca">Actualizar</a>
+                    <a class="nav-link"></a>
                 </li>
             </ul>
+
             <form class="form-inline my-2 my-lg-0">
-                <button type="button" class="btn btn-primary">Acerca de</button>
+                <button type="button" class="btn btn-primary" href="acerca">Acerca de</button>
             </form>
         </div>
     </nav>
@@ -71,42 +71,50 @@
 
     <div class="container my-5">
         <h2>Neurologico</h2>
-        <form id="formulario" method="POST">
-            <div class="input-group my-3">
-                <div class="input-group-prepend"><span class="input-group-text" id="">codigo del Examen</span></div>
-                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control">
+        <form id="formulario" method="POST" th:object="${examSub}">
+            <div class="input-group my-3" th:object="${examForm}">
+                <div class="input-group-prepend"><span class="input-group-text" id="">Codigo del Examen</span></div>
+                <input required type="text" id="codigoex" name="codigoex" placeholder="codigo" class="form-control"
+                    th:text="${examSub.examen=examForm.id}" th:field="${examSub.examen}" readonly>
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Estado de conciencia</span></div>
-                <input required type="number" id="eco" name="eco" placeholder="Estado de conciencia"
-                    class="form-control">
+                <input required type="text" id="eco" name="eco" placeholder="Estado de conciencia" class="form-control"
+                    th:field="${examSub.conciencia}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Pares craneales</span></div>
-                <input required type="number" id="pcr" name="pcr" placeholder="Pares craneales" class="form-control">
+                <input required type="text" id="pcr" name="pcr" placeholder="Pares craneales" class="form-control"
+                    th:field="${examSub.pares}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Estado Motor</span></div>
-                <input required type="number" id="mot" name="mot" placeholder="Motor" class="form-control">
+                <input required type="text" id="mot" name="mot" placeholder="Motor" class="form-control"
+                    th:field="${examSub.motor}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Estado sensitivo</span></div>
-                <input required type="number" id="ese" name="ese" placeholder="Estado sensitivo" class="form-control">
+                <input required type="text" id="ese" name="ese" placeholder="Estado sensitivo" class="form-control"
+                    th:field="${examSub.sensitivo}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Signos meningeos</span></div>
-                <input required type="number" id="sim" name="sim" placeholder="Signos meningeos" class="form-control">
+                <input required type="text" id="sim" name="sim" placeholder="Signos meningeos" class="form-control"
+                    th:field="${examSub.meningeos}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Personalidad</span></div>
-                <input required type="number" id="per" name="per" placeholder="Personalidad" class="form-control">
+                <input required type="text" id="per" name="per" placeholder="Personalidad" class="form-control"
+                    th:field="${examSub.personalidad}">
             </div>
             <div class="input-group my-3">
                 <div class="input-group-prepend"><span class="input-group-text" id="">Marcha</span></div>
-                <input required type="number" id="mar" name="mar" placeholder="Marcha" class="form-control">
+                <input required type="text" id="mar" name="mar" placeholder="Marcha" class="form-control"
+                    th:field="${examSub.marcha}">
             </div>
             <button class="btn btn-primary w-100" type="submit" id="examNeurologico">Subir</button>
         </form>
+        <button class="btn btn-warning w-100 my-3" type="submit" id="examPiel">Omitir</button>
     </div>
 
     <!-- Footer -->
